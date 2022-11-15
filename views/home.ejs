@@ -16,8 +16,8 @@
 </style>
 
 
-<body>
-    <section class="" style="background-color: #eee;">
+<body style="background-color: #eee;">
+    <section class="" >
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-lg-9 col-xl-7">
@@ -93,7 +93,12 @@
 <script>
     $(document).ready(function () {
         console.log("start")
-        loadTodoList() 
+        if(localStorage.getItem('authorization')){
+            loadTodoList() 
+        } else {
+            window.location = '/login'
+        }
+        
     });
 
     function loadTodoList() {
